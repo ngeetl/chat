@@ -10,6 +10,8 @@ const io = new Server(httpServer, {
     }
 });
 
+require("./utils/io")(io);
+
 httpServer.listen(process.env.PORT, () => {
     console.log(`${process.env.PORT}에서 서버가 열렸습니다!`)
 });
