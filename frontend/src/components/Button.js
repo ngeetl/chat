@@ -9,15 +9,15 @@ const MyButton = styled.button`
     margin: 10px;
     border: solid 1px gray;
 
-    ${(p) => p.danger && css`
+    ${(p) => p.$danger && css`
         background-color: red;
         color: white;
     `}
-    ${(p) => p.accept && css`
+    ${(p) => p.$accept && css`
         background-color: blue;
         color: white;
     `}
-    ${(p) => p.block && css`
+    ${(p) => p.$block && css`
         background-color: gray;
         color: white;
     `}
