@@ -23,4 +23,12 @@ userController.saveUser = async(userName, socketId) => {
     return user;
 };
 
+userController.checkUser = async(socketId) => {
+    const user = await User.findOne({ token: socketId });
+
+    if(!user) throw new Error("존재하지 않는 유저입니다.");
+    
+    return user;
+}
+
 module.exports = userController;
