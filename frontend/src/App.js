@@ -3,15 +3,17 @@ import socket from "./server";
 import Button from './components/Button';
 import { useEffect, useState } from 'react';
 import Window from './components/chat/Window';
+import MessageContainer from './components/MessageContainer/MessageContainer';
 
 function App() {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState('');
+  const [messageList, setMessageList] = useState([]);
 
   useEffect(() => {
     askUserName();
     socket.on('message', (message) => {
-      console.log("res: ", message);
+      setMessageList((prev) => prev.concat(message));
     })
   }, []);
 
@@ -35,7 +37,9 @@ function App() {
 
   return (
     <div className="App">
-      <Window message={message} setMessage={setMessage} sendMessage={sendMessage} />
+      <Window message={message} setMessage={setMessage} sendMessage={sendMessage}>
+        <MessageContainer messageList={messageList} user={user} />
+      </Window>
       <Button>기본</Button>
       <Button $danger>위험</Button>
       <Button $accept>수락</Button>

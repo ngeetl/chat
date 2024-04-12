@@ -6,12 +6,12 @@ width: 100%;
 height: 88%;
 background-color: aliceblue;
 `
-const ChatList = () => {
+const ChatList = ({ children }) => {
 
 
   return (
     <ListDiv>
-      ChatList
+      {children}
     </ListDiv>
   )
 }

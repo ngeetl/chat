@@ -9,11 +9,13 @@ const ChatDiv = styled.div`
     margin: auto;
 `
 
-const Window = ({ message, setMessage, sendMessage }) => {
+const Window = ({ message, setMessage, sendMessage, children }) => {
 
     return (
         <ChatDiv>
-            <ChatList />
+            <ChatList>
+                {children}
+            </ChatList>
             <div>
                 <form onSubmit={sendMessage}>
                     <input
